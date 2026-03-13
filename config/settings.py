@@ -17,10 +17,8 @@ SECRET_KEY = 'django-insecure-6s)y2bsl3dqvw=cp$0#*thdbr@v7t-67173+yppr46)0v5-%+s
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-    "https://expense-tracker-fullstack-1-ikle.onrender.com",
-    "expense-tracker-fullstack-52c4.vercel.app"
-]
+ALLOWED_HOSTS = ["*"]
+ 
 
 
 # Application definition
