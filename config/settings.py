@@ -76,16 +76,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
+import dj_database_url
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'expense_tracker',
-        'USER': 'postgres',
-        'PASSWORD': 'newpassword123',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
+    
 
 
 # Password validation
