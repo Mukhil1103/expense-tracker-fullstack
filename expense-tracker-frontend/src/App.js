@@ -21,29 +21,31 @@ function App() {
     setExpenses(res.data);
   };
 
-  const addExpense = async () => {
-    await axios.post(API_URL, {
-      title: title,
-      amount: parseFloat(amount),
-      date: date,
-      category: 1
-    });
+ const addExpense = async () => {
+  await axios.post(API_URL, {
+    title: title,
+    amount: Number(amount),
+    date: date,
+    category: 1,
+    user: 1
+  });
 
-    clearForm();
-    fetchExpenses();
-  };
+  clearForm();
+  fetchExpenses();
+};
 
-  const updateExpense = async () => {
-    await axios.put(`${API_URL}${editingId}/`, {
-      title: title,
-      amount: parseFloat(amount),
-      date: date,
-      category: 1
-    });
+const updateExpense = async () => {
+  await axios.put(`${API_URL}${editingId}/`, {
+    title: title,
+    amount: Number(amount),
+    date: date,
+    category: 1,
+    user: 1
+  });
 
-    clearForm();
-    fetchExpenses();
-  };
+  clearForm();
+  fetchExpenses();
+};
 
   const deleteExpense = async (id) => {
     await axios.delete(`${API_URL}${id}/`);
