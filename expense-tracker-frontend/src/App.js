@@ -24,12 +24,10 @@ function App() {
   const addExpense = async () => {
 
     await axios.post(API_URL, {
-      title,
-      amount,
-      date,
-      category: 1,
-      user: 1
-    });
+  title: title,
+  amount: amount,
+  date: date
+});
 
     clearForm();
     fetchExpenses();
@@ -40,11 +38,11 @@ function App() {
     await axios.put(
       `${API_URL}${editingId}/`,
       {
-        title,
-        amount,
-        date,
-        category: 1,
-        user: 1
+       {
+  title: title,
+  amount: amount,
+  date: date
+}
       }
     );
 
