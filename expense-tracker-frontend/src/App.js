@@ -25,9 +25,8 @@ function App() {
   await axios.post(API_URL, {
     title: title,
     amount: Number(amount),
-    date: date,
-    category: 1,
-    user: 1
+    date: date
+    
   });
 
   clearForm();
