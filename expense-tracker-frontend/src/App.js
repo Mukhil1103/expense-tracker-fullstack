@@ -22,33 +22,34 @@ function App() {
   };
 
   const addExpense = async () => {
+    const addExpense = async () => {
+  await axios.post(API_URL, {
+    title: title,
+    amount: parseFloat(amount),
+    date: date,
+    category: 1
+  });
 
-    await axios.post(API_URL, {
-  title: title,
-  amount: amount,
-  date: date
-});
+  clearForm();
+  fetchExpenses();
+};
 
-    clearForm();
-    fetchExpenses();
-  };
+    
 
   const updateExpense = async () => {
+    const updateExpense = async () => {
+  await axios.put(`${API_URL}${editingId}/`, {
+    title: title,
+    amount: parseFloat(amount),
+    date: date,
+    category: 1
+  });
 
-    await axios.put(
-      `${API_URL}${editingId}/`,
-      {
-       {
-  title: title,
-  amount: amount,
-  date: date
-}
-      }
-    );
+  clearForm();
+  fetchExpenses();
+};
 
-    clearForm();
-    fetchExpenses();
-  };
+    
 
   const deleteExpense = async (id) => {
 
