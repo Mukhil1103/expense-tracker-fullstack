@@ -9,6 +9,15 @@ from datetime import datetime
 from .models import Category, Expense
 from .serializers import CategorySerializer, ExpenseSerializer
 
+from django.contrib.auth.models import User
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def create_test_user(request):
+    User.objects.create_user(username="mukhil", password="1234")
+    return Response({"message": "User created"})
+
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
