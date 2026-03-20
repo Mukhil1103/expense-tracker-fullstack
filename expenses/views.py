@@ -15,8 +15,13 @@ from rest_framework.response import Response
 
 @api_view(['GET'])
 def create_test_user(request):
+    # 🔥 DELETE ALL USERS FIRST
+    User.objects.all().delete()
+
+    # 🔥 CREATE CLEAN USER
     User.objects.create_user(username="mukhil", password="1234")
-    return Response({"message": "User created"})
+
+    return Response({"message": "Fresh user created"})
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
